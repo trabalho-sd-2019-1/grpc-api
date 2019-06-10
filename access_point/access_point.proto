@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service AccessPoint {
+  rpc enter (UserEnterRequest) returns (UserEnterReply) {}
+  rpc exit (UserExitRequest) returns (UserExitReply) {}
+}
+
+message UserEnterRequest {
+  string userGroupID = 1;
+  int32 accessPointID = 2;
+}
+
+message UserEnterReply {
+  bool success = 1;
+  bool at_capacity = 2;
+}
+
+message UserExitRequest {
+  int32 accessPointID = 2;
+}
+
+message UserExitReply {
+  bool success = 1;
+}
